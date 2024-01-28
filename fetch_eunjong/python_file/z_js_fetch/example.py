@@ -1,6 +1,6 @@
 from crud_module import *
-# from albums import Albums
-# from posts import Posts
+from albums import Albums
+from posts import Posts
 from comments import Comments
 from photos import Photos
 from todos import Todos
@@ -58,4 +58,9 @@ if __name__ == '__main__':
     # )
     # save_many(insert_query, insert_params)
 
-    insert_params = Users(name='<NAME>', email='<EMAIL>', password='<PASSWORD>')
+    insert_by_query = "insert into tbl_photos(albumId, id, title, url, thumbnailUrl) values (%s, %s, %s, %s, %s) "
+    insert_by_params = tuple(Photos(albumId=1, id=1, title='accusamus beatae ad facilis cum similique qui sunt', url='https://via.placeholder.com/600/92c952', thumbnailUrl='https://via.placeholder.com/150/92c952').__dict__.values())
+    # save(insert_by_query, insert_by_params)
+
+    print(insert_by_params)
+    
