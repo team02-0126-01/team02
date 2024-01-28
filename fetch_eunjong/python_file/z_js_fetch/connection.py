@@ -1,7 +1,7 @@
 import pymysql
 from pymysql.cursors import Cursor
 
-conn = pymysql.connect(host='43.202.60.0', user='mysql', password='1234', db='test', charset='utf8', autocommit=False)
+conn = pymysql.connect(host='43.201.252.186', user='mysql', password='1234', db='test', charset='utf8', autocommit=False)
 cursor = conn.cursor(pymysql.cursors.DictCursor)
 
 # sql = "insert into tbl_member(email, password, name) values ('hds1234', '1234', '한동석')"
