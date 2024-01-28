@@ -1,26 +1,30 @@
-// 아래 url에서 가져온 JSON 데이터를 JS 객체로 변환(Array)
-fetch("https://jsonplaceholder.typicode.com/photos")
+fetch("https://jsonplaceholder.typicode.com/albums")
     .then((response) => response.json())
-    .then((posts) => {
+    .then((albums) => {
+        // 가져온 데이터에서 title의 첫 마디만 출력
+        // 데이터를 담을 빈 배열 선언
         resultArr = [];
-        // for ... of 를 사용해서 가져온 데이터의 인덱스 하나하나(Object)를 순회
-        for (i of posts) {
-            /* 
-                각 객체의 thumbnailUrl 키의 값(https://via.placeholder.com/150/92c952 등)을
-                '/' 를 기준으로 분리해서 Array로 만들고,
-                그 중 가장 마지막에 있는 문자열 추출
-            */
-            keyword = i.thumbnailUrl.split("/").at(-1);
 
-            /*
-                위에서 추출한 문자열을 split을 사용해서 다시 배열로 만들고,
-                filter 함수로 숫자인 요소들만 남겨서 numCount에 할당(현재 Array 타입) 
-            */
-            numCount = keyword.split("").filter((el) => !isNaN(el));
+        albums.forEach((album) => {
+            // albums의 각 요소에서 'title' 키의 값을 변수에 할당
+            const title = album.title;
 
-            // 그렇게 만들어진 배열의 길이를 resultArr에 추가
-            resultArr.push(numCount.length);
-        }
+            // 위에서 구한 title 변수에 아래에서 만든 함수 사용
+            targetQuote = getFirstQuote(title);
 
+            // 그헐게 구한 첫 마디를 resultArr에 추가
+            resultArr.push(targetQuote);
+        });
+
+        // resultArr 출력
         console.log(resultArr);
     });
+
+/*
+    문자열을 입력받아 공백(" ")을 기준으로 나눠서 배열화하고,
+    가장 처음에 있는 값을 반환하는 함수
+*/
+const getFirstQuote = (str) => {
+    firstWord = str.split(" ")[0];
+    return firstWord;
+};
