@@ -1,12 +1,13 @@
+from z_jsonplaceholder.comments.comments_class import CommentsInfo
 from z_jsonplaceholder.module.crud_module import *
 
 if __name__ == '__main__':
     ## create
     insert_by_query = "insert into tbl_comments (name, email, body, post_id) values (%s, %s, %s, %s)"
-    insert_by_params = ('id labore ex et quam laborum',
-                        'Eliseo@gardner.biz',
-                        'laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium'
-                        , 2)
+    insert_by_params = tuple(CommentsInfo(name='id labore ex et quam laborum',
+                                          email='Eliseo@gardner.biz',
+                                          body='laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium'
+                                          , post_id=2).__dict__.values())
     # save(insert_by_query, insert_by_params)
 
     ## read all
