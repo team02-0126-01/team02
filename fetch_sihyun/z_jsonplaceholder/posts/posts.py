@@ -1,12 +1,14 @@
 from z_jsonplaceholder.module.crud_module import *
+from z_jsonplaceholder.posts.posts_class import PostsInfo
 
 if __name__ == '__main__':
     ## create
     insert_by_query = "insert into tbl_posts (title, body, user_id) values (%s, %s, %s)"
-    insert_by_params = ('sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-                        'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
-                        1)
-    save(insert_by_query, insert_by_params)
+    insert_by_params = tuple(
+        PostsInfo(title='sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+                  body='quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+                  user_id=1).__dict__.values())
+    # save(insert_by_query, insert_by_params)
 
     ## read all
     select_all_query = "select id, title, body, user_id from tbl_posts"
