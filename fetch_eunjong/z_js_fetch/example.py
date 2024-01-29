@@ -63,4 +63,11 @@ if __name__ == '__main__':
     # save(insert_by_query, insert_by_params)
 
     print(insert_by_params)
-    
+
+    insert_by_query = "insert into tbl_users(id, name, username, email, phone, website) values (%s, %s, %s, %s, %s, %s)"
+    insert_by_params = tuple(Users(id =1, name="", rname="sunsin", email="<EMAIL>", phone="010-1234-5687", website="https://via.placeholder.com").__dict__.values())
+    # save(insert_by_query, insert_by_params)
+
+    insert_by_query = "insert into tbl_posts(title, body) values (%s, %s)"
+    insert_by_params = tuple(Posts(title="sunt aut facere repellat provident occaecati", boby="quidem molestiae").__dict__.values())
+    # save(insert_by_query, insert_by_params)
