@@ -1,5 +1,5 @@
 class Posts:
-    def __init__(self, id, title, body,*comment):
+    def __init__(self, id:int, title:str, body:str,*comment:list):
         self.id = id
         self.title = title
         self.body = body
