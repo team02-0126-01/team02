@@ -1,5 +1,11 @@
 from crud_module import *
 from posts import *
+from crud_module import *
+from albums import Albums
+from comments import Comments
+from photos import Photos
+from todos import Todos
+from users import Users
 if __name__ == '__main__':
 
     # save_many_query = "insert into tbl_geo(lat, lng) values(%s,%s)"
