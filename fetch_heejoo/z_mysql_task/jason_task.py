@@ -1,5 +1,11 @@
 from crud_module import *
 from posts import *
+from crud_module import *
+from albums import Albums
+from comments import Comments
+from photos import Photos
+from todos import Todos
+from users import Users
 if __name__ == '__main__':
 
     # save_many_query = "insert into tbl_geo(lat, lng) values(%s,%s)"
@@ -163,3 +169,15 @@ if __name__ == '__main__':
 
     post = Posts(post.get("id"), post.get("title"), post.get("content"), comments)
     print(post.__dict__)
+
+    # user정보 수정 (net이 포함된 이메일의 전화번호 수정)
+    update_query = "update tbl_users \
+                        set phone = concat(name,'님의 번호',phone) \
+                        where email like concat ('%%',%s,'%%')"
+    update_params = ["net"]
+    update(update_query, update_params)
+
+    # post에 title에 repellat가 있는 포스-m트 삭제
+    delete_query = "delete from tbl_posts where title like concat('%%',%s,'%%')"
+    delete_params = ['repellat']
+    delete(delete_query, delete_params)
