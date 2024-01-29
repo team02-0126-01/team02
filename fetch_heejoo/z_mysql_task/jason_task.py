@@ -171,7 +171,7 @@ if __name__ == '__main__':
     update_params = ["net"]
     update(update_query, update_params)
 
-    # post에 title에 repellat가 있는 포스트 삭제
+    # post에 title에 repellat가 있는 포스-m트 삭제
     delete_query = "delete from tbl_posts where title like concat('%%',%s,'%%')"
     delete_params = ['repellat']
     delete(delete_query, delete_params)
