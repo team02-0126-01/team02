@@ -1,11 +1,10 @@
-from z_jsonplaceholder.albums.albums_class import AlbumsInfo
 from z_jsonplaceholder.module.crud_module import *
 
 if __name__ == '__main__':
     ## create
     insert_by_query = "insert into tbl_albums (title, user_id) values (%s, %s)"
-    insert_by_params = tuple(AlbumsInfo(title='quidem molestiae enim',
-                                        user_id=1).__dict__.values())
+    insert_by_params = ('quidem molestiae enim',
+                        1)
     # save(insert_by_query, insert_by_params)
 
     ## read all

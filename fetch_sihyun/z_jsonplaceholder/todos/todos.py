@@ -1,12 +1,11 @@
 from z_jsonplaceholder.module.crud_module import *
-from z_jsonplaceholder.todos.todos_class import TodosInfo
 
 if __name__ == '__main__':
     ## create
     insert_by_query = "insert into tbl_todos (title, completed, user_id) values (%s, %s, %s)"
-    insert_by_params = tuple(TodosInfo(title='delectus aut autem',
-                                       completed='false',
-                                       user_id=1).__dict__.values())
+    insert_by_params = ('delectus aut autem',
+                        'false',
+                        1)
     save(insert_by_query, insert_by_params)
 
     ## read all
