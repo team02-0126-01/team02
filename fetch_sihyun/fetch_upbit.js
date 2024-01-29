@@ -1,6 +1,5 @@
-
+let coinData = [];
 const fetchData = (coinList) => {
-    let coinData = [];
     coinList.forEach((coin) =>
         fetch(`https://api.upbit.com/v1/ticker?markets=${coin}`)
             .then((response) => response.json())
@@ -21,6 +20,7 @@ const fetchData = (coinList) => {
             changeRate: changeRate,
         };
         coinData = [...coinData, coinInfo]
+        console.log(coinData)
     };
 
 };
